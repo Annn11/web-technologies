@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Олена Петренко — портфоліо</title>
+
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      background: #2050a0;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      display: inline-block;
+      cursor: pointer;
+      margin: 4px 0;
+      border: none;
+      font: inherit;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: #163b78;
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+
+    .status-error {
+      color: #b00020;
+      font-weight: bold;
+    }
+
+    .status-ok {
+      color: #007a4d;
+      font-weight: bold;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+    }
+
+    .project-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    a {
+      color: #2050a0;
+    }
+
+    h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
+      margin-top: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 8px;
+      font: inherit;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Привіт, мене звати Олена</h1>
+
+    <p>Я студентка 1-го курсу ІПЗ у НаУКМА. Тут — мої проєкти і контакти.</p>
+
+    <!--A11Y: у зображення не було alt, тому скрінрідер не міг пояснити, що на фото -->
+    <img class="avatar" src="me.jpg" alt="Фото Олени Петренко">
+  </header>
+
+  <main>
+    <section aria-labelledby="education-title">
+      <!-- A11Y: після h1 має йти h2, а не одразу h3, щоб структура була правильною -->
+      <h2 id="education-title">Освіта</h2>
+
+      <!-- A11Y: інформація була просто текстом через br, оформлюю її списком -->
+      <ul>
+        <li>НаУКМА, бакалавр ІПЗ</li>
+        <li>Спеціалізація: веб-розробка</li>
+        <li>Рік випуску: 2027</li>
+        <li>Середній бал: 4.7</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="projects-title">
+      <h2 id="projects-title">Проєкти</h2>
+
+      <article>
+        <h3>Інтернет-магазин випічки</h3>
+
+        <p>Платформа для замовлення домашньої випічки з доставкою.</p>
+
+        <!-- A11Y: статус не можна передавати тільки кольором, тому додано текстове пояснення -->
+        <p>
+          Статус:
+          <span class="status-error">Помилка: проблеми з оплатою</span>,
+          <span class="status-ok">Успішно: доставка працює</span>
+        </p>
+
+        <!-- A11Y: список технологій був записаний через br, краще використати ul -->
+        <p>Технології:</p>
+        <ul>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>TypeScript</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Календар університетських подій</h3>
+
+        <p>Веб-застосунок для слідкування за подіями факультету. Інтегрований з Google Calendar.</p>
+
+        <!-- A11Y: у зображення не було alt, тому додано опис -->
+        <img
+          class="project-img"
+          src="calendar-screenshot.png"
+          alt="Скріншот календаря університетських подій"
+        >
+      </article>
+    </section>
+
+    <section aria-labelledby="contacts-title">
+      <h2 id="contacts-title">Контакти</h2>
+
+      <p>Зв'яжіться зі мною:</p>
+
+      <!-- A11Y: посилання було без href і працювало тільки через onclick -->
+      <p>
+        <a href="mailto:olena.petrenko@example.com">Написати email</a>
+      </p>
+
+      <!-- A11Y: div onclick використовувався як кнопка, замінено на справжній button -->
+      <button class="btn" type="button" onclick="alert('Дзвонок')">
+        Зателефонувати
+      </button>
+    </section>
+
+    <section aria-labelledby="subscribe-title">
+      <h2 id="subscribe-title">Підписка на новини</h2>
+
+      <p>Залиште email і отримуйте щотижневі оновлення про мої проєкти:</p>
+
+      <!-- A11Y: input мав тільки placeholder, але не мав label -->
+      <form>
+        <label for="email">Ваш email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="example@email.com"
+          required
+        >
+
+        <!-- A11Y: button був без type, тому додано type="submit" -->
+        <button class="btn" type="submit">Підписатися</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="social-title">
+      <h2 id="social-title">Соцмережі</h2>
+
+      <p>
+        <!-- A11Y: target="_blank" був без rel="noopener", це небезпечно -->
+        <a href="https://github.com/olenapetrenko" target="_blank" rel="noopener noreferrer">GitHub</a>
+        &middot;
+        <a href="https://linkedin.com/in/olenapetrenko" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        &middot;
+        <a href="https://twitter.com/olenap" target="_blank" rel="noopener noreferrer">Twitter</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p style="text-align: center; color: #555;">&copy; 2026 Олена Петренко</p>
+  </footer>
+
+</body>
+</html>
